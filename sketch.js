@@ -10,7 +10,7 @@
         return color;
     }
     container.addEventListener('dblclick',()=>{
-        const val = parseInt(size.value);
+        const val = Number(size.value);
 
         const width = container.clientWidth;
         const boxsize = width / val;
