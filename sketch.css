@@ -116,7 +116,7 @@ input.slider::-webkit-slider-thumb:hover{
 #colorPicker{
   appearance: none;
   border: none;
-  
+  background: none;
   height: 80px;
   width: 80px;
   border-radius: 50%;  
