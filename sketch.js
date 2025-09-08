@@ -7,6 +7,7 @@
     sizeDisplay.textContent = `${size.value} x ${size.value}`;
     size.addEventListener('input', () => {
     sizeDisplay.textContent = `${size.value} x ${size.value}`;
+    container.innerHTML = '';
     });
     
     
@@ -46,7 +47,7 @@
     }
 
     function grid(){
-         const val = Number(size.value);
+        const val = Number(size.value);
 
         const width = container.clientWidth;
         const boxsize = width / val;
