@@ -7,7 +7,7 @@
     sizeDisplay.textContent = `${size.value} x ${size.value}`;
     size.addEventListener('input', () => {
     sizeDisplay.textContent = `${size.value} x ${size.value}`;
-    container.innerHTML = '';
+        container.innerHTML = '';
     });
     
     
@@ -29,14 +29,22 @@
         enable = false;
         multi = true;
         singular = false;
+        random.style.background = "black";
+        random.style.color = "white";
+        single.style.background = "white";
+        single.style.color = "black";
     });
     single.addEventListener('click',()=> {
         enable = false;
         singular = true; 
         multi = false;
+        single.style.background = "black";
+        single.style.color = "white";
+        
+        random.style.background = "white";
+        random.style.color = "black";
+        
     });
-
-    
     
     function color(){
         const R = Math.floor(Math.random() * 256)
