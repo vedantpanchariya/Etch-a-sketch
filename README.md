@@ -1,3 +1,8 @@
+## Etch-A-Sketch 
+
+[Live Demo](https://vedantpanchariya.github.io/Etch-a-sketch/)
+
+
 ## How to play :
 ```bash
 1.Enter Number of grids you want in a row using the slider , 10 is initial(64 max).
