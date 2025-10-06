@@ -1,3 +1,4 @@
+## How to play :
 1.Enter Number of grids you want in a row using the slider , 10 is initial(64 max).
 2.Either select random colors which will continously generate random colors while you are drawing.
 3.Or select a single color.
