@@ -1,142 +1,221 @@
-  body{
-    
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-      background-color: rgb(219, 219, 219);
-      min-width: 800px;
-      margin: 0;
-  }
-  #header{
-      text-align: center;
-      font-size: 50px;
-      color : black;
-      font-weight: 900;
-      margin-bottom: 20px;
-  }
-  #main{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 40px;
-  }
-  #container{
-      width: 480px;
-      height: 480px;
-      background: white;
-      border-radius: 10px;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      overflow: hidden;
-      cursor: pointer;
-      flex-shrink: 0;
-  }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-  #input label {
-    font-size: 40px;
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(219, 219, 219);
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    text-align: center;
+    font-size: clamp(28px, 5vw, 50px);
+    color: black;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#container {
+    width: min(480px, 90vw);
+    height: min(480px, 90vw);
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#sides {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    flex-shrink: 0;
+    width: min(300px, 90vw);
+}
+
+.controls,
+#input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+#input label {
+    font-size: clamp(24px, 4vw, 40px);
     font-weight: 500;
-    color: #ffffff;
-  }
+    color: #333;
+}
 
-  #sizeDisplay {
+#sizeDisplay {
     font-weight: bold;
     color: black;
-  }
+    font-size: clamp(18px, 3vw, 24px);
+}
 
-  input.slider {
+input.slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     height: 8px;
     background: gray;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
-  }
+}
 
-  input.slider::-webkit-slider-thumb {
+input.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
     height: 20px;
     background: black;
     border-radius: 50%;
-  }
-  input.slider::-webkit-slider-thumb:hover{
-    transform: scale(1.3);
-    
-  }
+    cursor: pointer;
+}
 
-  #singleMode,
-  #randomMode{
+input.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    cursor: pointer;
     border: none;
-    width: 200px;
+}
+
+input.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+}
+
+#singleMode,
+#randomMode,
+#startDrawing {
+    border: none;
+    width: 100%;
+    max-width: 200px;
     height: 50px;
     border-radius: 30px;
     background-color: white;
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 20px);
     font-weight: bold;
-  }
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-  #Clear {
-    padding: 8px 16px;
+#Clear {
+    padding: 12px 20px;
     background-color: white;
     color: #121212;
     border: none;
     border-radius: 20px;
-    font-size: 25px;
+    font-size: clamp(18px, 3vw, 25px);
     font-weight: 600;
     cursor: pointer;
-  }
-  #singleMode:hover,
-  #randomMode:hover,
-  #Clear:hover{
-    background-color: gray !important; 
-    transition: 0.5s;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+}
+
+#singleMode:hover,
+#randomMode:hover,
+#startDrawing:hover,
+#Clear:hover {
+    background-color: gray;
     color: white;
-    cursor: pointer;
-  }
-  #colorPicker{
+}
+
+#startDrawing.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#colorPicker {
     appearance: none;
     border: none;
     background: none;
     height: 80px;
     width: 80px;
-    border-radius: 50%;  
-    overflow: hidden;
-  }
-  #sides {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    flex-shrink: 0; 
-    
-  }
-  .controls,
-  #input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  #colorPicker::-webkit-color-swatch-wrapper{
-    padding: 0px;
-  }
-  #colorPicker::-webkit-color-swatch{
     border-radius: 50%;
-  }
-  body, #header, #container {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#colorPicker::-webkit-color-swatch-wrapper {
+    padding: 0px;
+}
+
+#colorPicker::-webkit-color-swatch {
+    border-radius: 50%;
+    border: none;
+}
+
+body, #header, #container {
     user-select: none;
-  }
+}
 
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
 
+    #main {
+        gap: 20px;
+    }
 
+    #header {
+        margin-bottom: 15px;
+    }
 
+    #sides {
+        gap: 20px;
+    }
+
+    .controls,
+    #input {
+        gap: 12px;
+    }
+
+    #colorPicker {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    #main {
+        flex-direction: column;
+    }
+
+    #container {
+        order: 2;
+    }
+
+    #sides {
+        order: 1;
+    }
+}
