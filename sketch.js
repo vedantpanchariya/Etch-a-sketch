@@ -10,6 +10,7 @@ size.addEventListener('input', () => {
     container.innerHTML = '';
 });
 
+
 const random = document.getElementById('randomMode');
 const single = document.getElementById('singleMode');
 const picker = document.getElementById('colorPicker');
