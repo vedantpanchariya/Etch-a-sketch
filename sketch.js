@@ -8,7 +8,7 @@ sizeDisplay.textContent = `${size.value} x ${size.value}`;
 size.addEventListener('input', () => {
     sizeDisplay.textContent = `${size.value} x ${size.value}`;
     container.innerHTML = '';
-});
+}); 
 
 const random = document.getElementById('randomMode');
 const single = document.getElementById('singleMode');
