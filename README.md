@@ -1,6 +1,6 @@
 # Etch-A-Sketch
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)]((https://vedantpanchariya.github.io/Etch-a-sketch))
+[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://vedantpanchariya.github.io/Etch-a-sketch)
 
 An interactive drawing web application that lets you create pixel art on a customizable grid. Features both desktop and mobile support with touch-optimized drawing experience.
 
