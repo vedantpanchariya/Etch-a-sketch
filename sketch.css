@@ -34,8 +34,8 @@ body {
 }
 
 #container {
-    width: min(480px, 90vw);
-    height: min(480px, 90vw);
+    width: clamp(300px, 100%, 480px);
+    height: clamp(300px, 100%, 480px);
     background: white;
     border-radius: 10px;
     display: flex;
