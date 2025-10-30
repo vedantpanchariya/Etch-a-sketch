@@ -54,9 +54,9 @@ function grid() {
     const width = container.clientWidth;
     const boxsize = width / val;
 
-    container.style.alignContent = 'flex-start';
-    container.style.display = 'flex';
-    container.style.flexWrap = 'wrap';
+    container.style.display = 'grid';
+    container.style.gridTemplateColumns = `repeat(${val}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${val}, 1fr)`;
 
     for (let j = 0; j < val; j++) {
         for (let i = 0; i < val; i++) {
