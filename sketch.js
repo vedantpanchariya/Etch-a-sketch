@@ -10,7 +10,6 @@ size.addEventListener('input', () => {
     container.innerHTML = '';
 });
 
-
 const random = document.getElementById('randomMode');
 const single = document.getElementById('singleMode');
 const picker = document.getElementById('colorPicker');
@@ -66,6 +65,7 @@ function grid() {
             box.style.width = boxsize + 'px';
             box.style.height = boxsize + 'px';
 
+            // Desktop: mouseover event
             box.addEventListener('mouseover', () => {
                 if (enable == false) return;
                 if (multi == true) {
@@ -73,14 +73,47 @@ function grid() {
                 } else {
                     box.style.backgroundColor = chooser;
                 }
+            });
 
+            // Mobile: touchmove event
+            box.addEventListener('touchstart', (e) => {
+                if (enable == false) return;
+                e.preventDefault();
+                if (multi == true) {
+                    box.style.backgroundColor = color();
+                } else {
+                    box.style.backgroundColor = chooser;
+                }
             });
 
             container.appendChild(box);
-
         }
     }
 }
+
+// Handle touchmove for continuous drawing on mobile
+container.addEventListener('touchmove', (e) => {
+    if (enable == false) return;
+    e.preventDefault();
+    
+    const touch = e.touches[0];
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+    
+    if (element && element.parentElement === container) {
+        if (multi == true) {
+            element.style.backgroundColor = color();
+        } else {
+            element.style.backgroundColor = chooser;
+        }
+    }
+});
+
+// Prevent default touch behavior on container
+container.addEventListener('touchstart', (e) => {
+    if (enable) {
+        e.preventDefault();
+    }
+});
 
 // Create mobile button
 const mobileBtn = document.createElement('button');
