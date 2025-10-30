@@ -3,7 +3,7 @@ const input = document.getElementById('Clear');
 let size = document.getElementById('number');
 size.value = 10;
 const sizeDisplay = document.getElementById('sizeDisplay');
-let enable = false; 
+let enable = false;
 sizeDisplay.textContent = `${size.value} x ${size.value}`;
 size.addEventListener('input', () => {
     sizeDisplay.textContent = `${size.value} x ${size.value}`;
@@ -65,7 +65,6 @@ function grid() {
             box.style.width = boxsize + 'px';
             box.style.height = boxsize + 'px';
 
-            // Desktop: mouseover event
             box.addEventListener('mouseover', () => {
                 if (enable == false) return;
                 if (multi == true) {
@@ -75,7 +74,6 @@ function grid() {
                 }
             });
 
-            // Mobile: touchmove event
             box.addEventListener('touchstart', (e) => {
                 if (enable == false) return;
                 e.preventDefault();
@@ -91,7 +89,6 @@ function grid() {
     }
 }
 
-// Handle touchmove for continuous drawing on mobile
 container.addEventListener('touchmove', (e) => {
     if (enable == false) return;
     e.preventDefault();
@@ -108,14 +105,12 @@ container.addEventListener('touchmove', (e) => {
     }
 });
 
-// Prevent default touch behavior on container
 container.addEventListener('touchstart', (e) => {
     if (enable) {
         e.preventDefault();
     }
 });
 
-// Create mobile button
 const mobileBtn = document.createElement('button');
 mobileBtn.id = 'mobileDrawBtn';
 mobileBtn.textContent = 'Start Drawing';
@@ -125,27 +120,48 @@ mobileBtn.style.fontSize = '16px';
 mobileBtn.style.fontWeight = 'bold';
 mobileBtn.style.margin = '10px';
 mobileBtn.style.cursor = 'pointer';
+mobileBtn.style.background = '#4CAF50';
+mobileBtn.style.color = 'white';
+mobileBtn.style.border = 'none';
+mobileBtn.style.borderRadius = '4px';
 
-// Insert button before container
+const stopBtn = document.createElement('button');
+stopBtn.id = 'mobileStopBtn';
+stopBtn.textContent = 'Stop Drawing';
+stopBtn.style.display = 'none';
+stopBtn.style.padding = '15px 30px';
+stopBtn.style.fontSize = '16px';
+stopBtn.style.fontWeight = 'bold';
+stopBtn.style.margin = '10px';
+stopBtn.style.cursor = 'pointer';
+stopBtn.style.background = '#f44336';
+stopBtn.style.color = 'white';
+stopBtn.style.border = 'none';
+stopBtn.style.borderRadius = '4px';
+
 container.parentNode.insertBefore(mobileBtn, container);
+container.parentNode.insertBefore(stopBtn, container);
 
-// Function to check screen size and show/hide button
 function checkScreenSize() {
     if (window.innerWidth <= 768) {
-        mobileBtn.style.display = 'block';
+        mobileBtn.style.display = 'inline-block';
+        stopBtn.style.display = 'inline-block';
     } else {
         mobileBtn.style.display = 'none';
+        stopBtn.style.display = 'none';
     }
 }
 
-// Check on load and resize
 checkScreenSize();
 window.addEventListener('resize', checkScreenSize);
 
-// Mobile button click event
 mobileBtn.addEventListener('click', () => {
     grid();
     enable = true;
+});
+
+stopBtn.addEventListener('click', () => {
+    enable = false;
 });
 
 container.addEventListener('dblclick', () => {
