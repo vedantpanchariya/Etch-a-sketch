@@ -176,5 +176,5 @@ container.addEventListener('click', () => {
 
 input.addEventListener('click', () => {
     container.innerHTML = '';
-    number = document.getElementById('number').value;
+    grid();
 });
