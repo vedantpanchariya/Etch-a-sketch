@@ -88,7 +88,7 @@ function grid() {
         }
     }
 }
-
+grid()
 container.addEventListener('touchmove', (e) => {
     if (enable == false) return;
     e.preventDefault();
