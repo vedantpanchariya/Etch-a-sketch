@@ -156,7 +156,7 @@ checkScreenSize();
 window.addEventListener('resize', checkScreenSize);
 
 mobileBtn.addEventListener('click', () => {
-    grid();
+    
     enable = true;
 });
 
@@ -165,7 +165,7 @@ stopBtn.addEventListener('click', () => {
 });
 
 container.addEventListener('dblclick', () => {
-    grid();
+    
     enable = true;
 });
 
