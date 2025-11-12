@@ -8,6 +8,7 @@ sizeDisplay.textContent = `${size.value} x ${size.value}`;
 size.addEventListener('input', () => {
     sizeDisplay.textContent = `${size.value} x ${size.value}`;
     container.innerHTML = '';
+    grid();
 }); 
 
 const random = document.getElementById('randomMode');
